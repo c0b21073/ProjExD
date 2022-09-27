@@ -27,11 +27,13 @@ for i in range(roop):
     ans_n = int(input("\n欠損文字はいくつあるでしょうか？:"))
     if ans_n == kee_mojisu:
         print("正解です。それでは、具体的に欠損文字を１つずつ入力してください。")
-        for i in range(kee_mojisu - 1):
+        for i in range(kee_mojisu):
             ans = input(f"{i+1}つ目の文字を入力してください:")
             if ans in kee:
                 kee.remove(ans)
+
             else:
-                False
-    print("不正解です。またチャレンジしてください")
+                break
+    else:
+        print("不正解です。またチャレンジしてください")
     print("--------------------")
