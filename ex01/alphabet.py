@@ -15,19 +15,16 @@ for i in range(roop):
     print("対象文字:",end="")
     for i in tai:
         print(i,end=" ")
-    print()
 
-    print("欠損文字:",end="")
+    print("\n欠損文字:",end="")
     for i in kee:
         print(i,end=" ")
-    print()
 
-    print("表示文字:",end="")
+    print("\n表示文字:",end="")
     for i in hyo:
         print(i,end=" ")
-    print()
-    
-    ans_n = int(input("欠損文字はいくつあるでしょうか？:"))
+
+    ans_n = int(input("\n欠損文字はいくつあるでしょうか？:"))
     if ans_n == kee_mojisu:
         print("正解です。それでは、具体的に欠損文字を１つずつ入力してください。")
         for i in range(kee_mojisu - 1):
