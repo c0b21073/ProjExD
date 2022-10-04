@@ -1,4 +1,3 @@
-from sqlite3 import OperationalError
 import tkinter as tk
 import tkinter.messagebox as tkm
 
