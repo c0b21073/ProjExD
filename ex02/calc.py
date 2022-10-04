@@ -16,10 +16,10 @@ def click_equal(event): # 練習7
 def click_AC(event):
     entry.delete(0,tk.END)
 
-def mouse_over(event):
+def mouse_over(event): # マウスオーバーした時にボタンの色を水色に変更
     event.widget["bg"] = "#CCFFFF"
 
-def mouse_leave(event):
+def mouse_leave(event): # マウスオーバーから去った時にボタンの色を元に戻すSSSS
     event.widget["bg"] = "SystemButtonFace"
 
 root = tk.Tk() # 練習1
