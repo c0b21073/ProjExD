@@ -46,36 +46,10 @@ def main_proc():
 def random_bird(): #ランダムなこうかとんの画像に変える
     global bird
     bird_n = random.randint(0, 9)
-    if bird_n == 0:
-        bird = tk.PhotoImage(file="fig/0.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 1:
-        bird = tk.PhotoImage(file="fig/1.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 2:
-        bird = tk.PhotoImage(file="fig/2.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 3:
-        bird = tk.PhotoImage(file="fig/3.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 4:
-        bird = tk.PhotoImage(file="fig/4.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 5:
-        bird = tk.PhotoImage(file="fig/5.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 6:
-        bird = tk.PhotoImage(file="fig/6.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 7:
-        bird = tk.PhotoImage(file="fig/7.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 8:
-        bird = tk.PhotoImage(file="fig/8.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
-    if bird_n == 9:
-        bird = tk.PhotoImage(file="fig/9.png")
-        can.create_image(cx, cy, image=bird, tag="bird")
+    birds = ["fig/0.png","fig/1.png","fig/2.png","fig/3.png","fig/4.png","fig/5.png","fig/6.png","fig/7.png","fig/8.png","fig/9.png"]
+    bird = birds[bird_n]
+    bird = tk.PhotoImage(file=f"{bird}")
+    can.create_image(cx, cy, image=bird, tag="bird")
 
 def set_start(maze):
     global mx, my
