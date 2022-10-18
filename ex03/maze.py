@@ -90,6 +90,7 @@ def set_goal(maze):
             if maze[j][i] == 0:
                 if count_g == goalPos:
                     gx, gy = (i, j)
+                    maze[gx][gy] = 2
                     return gx, gy
                 else:
                     count_g += 1
