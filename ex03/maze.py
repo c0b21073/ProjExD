@@ -10,6 +10,8 @@ if __name__ == "__main__":
 
     bird = tk.PhotoImage(file="fig/7.png")
     cx, cy = 300, 400
-    can.create_image(cx, cy, image=bird, tag="bird")
+    can.create_image(cx, cy, image=bird, tag="bird") #練習3
+
+    key = "" #練習4
 
     root.mainloop()
