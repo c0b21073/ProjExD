@@ -16,16 +16,19 @@ def main_proc():
     global cx, cy
     if key == "Up":
         my -= 1
+        random_bird()
     if key == "Down":
         my += 1
+        random_bird()
     if key == "Left":
         mx -= 1
+        random_bird()
     if key == "Right":
         mx += 1
+        random_bird()
 
     if maze_sig[my][mx] == 0:
         cx, cy = mx * 100 + 50, my * 100 + 50
-        random_bird()
     else:
         if key == "Up":
             my += 1
