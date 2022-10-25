@@ -149,42 +149,14 @@ def game():
 
         if pg.time.get_ticks() >= 5000:
             scrn_sfc.blit(bomb2_sfc, bomb2_rct)
-        if pg.time.get_ticks() >= 6500:
-            if tori_rct.colliderect(bomb2_rct):
-                fonto = pg.font.Font(None, 300)
-                txt = fonto.render(str(tmr), True, (0,0,0))
-                scrn_sfc.blit(txt, (200,300))
-                tori_sfc = pg.image.load("fig/7.png")
-                tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
         if pg.time.get_ticks() >= 10000:
             scrn_sfc.blit(bomb3_sfc, bomb3_rct)
-        if pg.time.get_ticks() >= 11500:
-            if tori_rct.colliderect(bomb3_rct):
-                fonto = pg.font.Font(None, 300)
-                txt = fonto.render(str(tmr), True, (0,0,0))
-                scrn_sfc.blit(txt, (200,300))
-                tori_sfc = pg.image.load("fig/7.png")
-                tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
         if pg.time.get_ticks() >= 15000:
             scrn_sfc.blit(bomb4_sfc, bomb4_rct)
-        if pg.time.get_ticks() >= 16500:
-            if tori_rct.colliderect(bomb4_rct):
-                fonto = pg.font.Font(None, 300)
-                txt = fonto.render(str(tmr), True, (0,0,0))
-                scrn_sfc.blit(txt, (200,300))
-                tori_sfc = pg.image.load("fig/7.png")
-                tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
         if pg.time.get_ticks() >= 20000:
             scrn_sfc.blit(bomb5_sfc, bomb5_rct)
-        if pg.time.get_ticks() >= 21500:
-            if tori_rct.colliderect(bomb5_rct):
-                fonto = pg.font.Font(None, 300)
-                txt = fonto.render(str(tmr), True, (0,0,0))
-                scrn_sfc.blit(txt, (200,300))
-                tori_sfc = pg.image.load("fig/7.png")
-                tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
 
-        if tori_rct.colliderect(bomb1_rct):
+        if tori_rct.colliderect(bomb1_rct) or tori_rct.colliderect(bomb2_rct) or tori_rct.colliderect(bomb3_rct) or tori_rct.colliderect(bomb4_rct) or tori_rct.colliderect(bomb5_rct):
             fonto = pg.font.Font(None, 300)
             txt = fonto.render(str(tmr), True, (0,0,0))
             scrn_sfc.blit(txt, (200, 300))
