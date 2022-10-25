@@ -158,7 +158,7 @@ def game():
 
         if tori_rct.colliderect(bomb1_rct) or tori_rct.colliderect(bomb2_rct) or tori_rct.colliderect(bomb3_rct) or tori_rct.colliderect(bomb4_rct) or tori_rct.colliderect(bomb5_rct):
             fonto = pg.font.Font(None, 300)
-            txt = fonto.render(str(tmr), True, (0,0,0))
+            txt = fonto.render(tmr, True, (0,0,0))
             scrn_sfc.blit(txt, (200, 300))
             tori_sfc = pg.image.load("fig/7.png")
             tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
