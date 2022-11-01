@@ -48,12 +48,25 @@ class Bird:
     def blit(self,scr:Screen):
         scr.scrn_sfc.blit(self.bird_sfc, self.bird_rct)
 
+    def hadoudan(self,scr:Screen):
+        hadou_sfc = pg.Surface((30, 30)) 
+        hadou_sfc.set_colorkey((0, 0, 0) ) 
+        pg.draw.circle(hadou_sfc, (0,0,255), (30, 30), 30) 
+        hadou_rct = hadou_sfc.get_rect()
+        hadou_rct.centerx = self.bird_rct.centerx
+        hadou_rct.centery = self.bird_rct.centery 
+        self.vx = -5
+        scr.scrn_sfc.blit(hadou_sfc, hadou_rct)
+        hadou_rct.move_ip(self.vx, 0)
+
     def update(self,scr:Screen):
         key_states = pg.key.get_pressed()
         for key, delta in Bird.key_delta.items():
             if key_states[key]:
                 self.bird_rct.centerx += delta[0]
                 self.bird_rct.centery += delta[1]
+                if delta  == [0,0]:
+                    self.hadoudan(scr)
                 if check_bound(self.bird_rct, scr.scrn_rct) != (+1, +1):
                     self.bird_rct.centerx -= delta[0]
                     self.bird_rct.centery -= delta[1]
@@ -63,17 +76,6 @@ class Bird:
         fonto = pg.font.Font(None, 50)
         show = fonto.render(f'Birds_vitality: {self.BIRD_LIFE}', True, (0,0,0))
         scr.scrn_sfc.blit(show, (0,0))
-
-    def hadoudan(self,scr:Screen):
-        hadou_sfc = pg.Surface((30, 30)) 
-        hadou_sfc.set_colorkey((0, 0, 0)) 
-        pg.draw.circle(hadou_sfc, (0,0,255), (30, 30), 30) 
-        hadou_rct = hadou_sfc.get_rect()
-        hadou_rct.centerx = self.bird_rct.centerx
-        hadou_rct.centery = self.bird_rct.centerx
-        vx = -5
-        scr.scrn_sfc.blit(hadou_sfc, hadou_rct)
-        hadou_rct.move_ip(self.vx, self.vy)
 
 
 class Bomb:
@@ -164,7 +166,7 @@ def main():
         if bird.BIRD_LIFE == 0 or enemy.life == 0:
             return
 
-        if bird.bird_rct.colliderect(bomb_α.bomb_rct) or enemy.enemy_rct.colliderect(bomb_β.bomb_rct) or enemy.enemy_rct.colliderect(bomb_γ.bomb_rct):
+        if bird.bird_rct.colliderect(bomb_α.bomb_rct) or bird.bird_rct.colliderect(bomb_β.bomb_rct) or bird.bird_rct.colliderect(bomb_γ.bomb_rct):
             return
         
         if enemy.enemy_rct.colliderect(bomb_α.bomb_rct) or enemy.enemy_rct.colliderect(bomb_β.bomb_rct) or enemy.enemy_rct.colliderect(bomb_γ.bomb_rct):
