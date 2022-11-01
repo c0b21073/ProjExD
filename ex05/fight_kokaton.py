@@ -3,11 +3,6 @@ import sys
 from random import randint
 
 def check_bound(obj_rct, scr_rct):
-    """
-    obj_rct：こうかとんrct，または，爆弾rct
-    scr_rct：スクリーンrct
-    領域内：+1／領域外：-1
-    """
     yoko, tate = +1, +1
     if obj_rct.left < scr_rct.left or scr_rct.right < obj_rct.right: 
         yoko = -1
@@ -47,17 +42,6 @@ class Bird:
 
     def blit(self,scr:Screen):
         scr.scrn_sfc.blit(self.bird_sfc, self.bird_rct)
-
-    def hadoudan(self,scr:Screen):
-        hadou_sfc = pg.Surface((30, 30)) 
-        hadou_sfc.set_colorkey((0, 0, 0) ) 
-        pg.draw.circle(hadou_sfc, (0,0,255), (30, 30), 30) 
-        hadou_rct = hadou_sfc.get_rect()
-        hadou_rct.centerx = self.bird_rct.centerx
-        hadou_rct.centery = self.bird_rct.centery 
-        self.vx = -5
-        scr.scrn_sfc.blit(hadou_sfc, hadou_rct)
-        hadou_rct.move_ip(self.vx, 0)
 
     def update(self,scr:Screen):
         key_states = pg.key.get_pressed()
