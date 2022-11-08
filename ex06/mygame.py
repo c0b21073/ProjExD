@@ -39,6 +39,7 @@ def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     screen.blit(img, (x, y))
 
+
 # ゲームオーバー後に各自変数をリセット
 def reset_game():
     obj_group.empty()
@@ -46,6 +47,7 @@ def reset_game():
     koukaton.rect.y = int(screen_height/2)
     score = 0
     return score
+
 
 #Birdクラス作成
 class Bird(pygame.sprite.Sprite):
@@ -74,6 +76,7 @@ class Bird(pygame.sprite.Sprite):
         if not self.jumped:
             self.jumped = True
             self.jumpep = -30
+
 
 # Objectクラス作成
 class Object(pygame.sprite.Sprite):
